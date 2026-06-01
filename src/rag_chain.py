@@ -1,18 +1,10 @@
-import os
-
-from dotenv import load_dotenv
-
+import streamlit as st
 from langchain_mistralai import ChatMistralAI
 
-
-load_dotenv()
-
-
 def get_llm():
-
     llm = ChatMistralAI(
         model="mistral-small-latest",
-        api_key=os.getenv("MISTRAL_API_KEY")
+        api_key=st.secrets["MISTRAL_API_KEY"]
     )
 
     return llm
